@@ -1,3 +1,8 @@
+using System.Data.Common;
+using WebApplication1.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Sqlite;
+
 namespace WebApplication1
 {
     public class Program
@@ -8,6 +13,7 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddDbContext<FociDbContext>(options => options.UseSqlite(connectionString: "Data Source = Foci.db"));
 
             var app = builder.Build();
 
